@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GreenProof — Prove Your Impact</title>
+<style>
+:root{--green:#176b48;--green2:#24865b;--mint:#e9f7ef;--ink:#17352a;--muted:#65766e;--line:#dce9e0;--cream:#f7faf7}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#124b36,#218458);color:#fff;padding:25px max(20px,calc((100% - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:800;letter-spacing:-.5px}.brand span{display:block;font-size:12px;font-weight:500;opacity:.85;letter-spacing:.4px}
+.tag{border:1px solid #ffffff66;border-radius:999px;padding:7px 12px;font-size:12px}
+main{max-width:1180px;margin:28px auto;padding:0 20px}.intro{display:flex;justify-content:space-between;gap:18px;align-items:end;flex-wrap:wrap;margin-bottom:22px}.intro h1{margin:0 0 5px;font-size:30px;letter-spacing:-1px}.intro p{margin:0;color:var(--muted);max-width:650px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.tab{border:1px solid var(--line);background:white;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:650;color:var(--ink)}.tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 5px 20px #1a57300a}.span8{grid-column:span 8}.span4{grid-column:span 4}.span6{grid-column:span 6}.span12{grid-column:span 12}
+.card h2{font-size:17px;margin:0 0 14px}.metric{font-size:29px;font-weight:800;letter-spacing:-1px}.muted{color:var(--muted);font-size:13px}.pill{display:inline-block;border-radius:999px;background:var(--mint);color:var(--green);padding:4px 9px;font-size:12px;font-weight:700}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}label{font-size:13px;font-weight:650;display:block;margin-bottom:5px}input,select,textarea{width:100%;padding:10px 11px;border:1px solid #cbdcd0;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}button.primary{background:var(--green);color:#fff;border:0;border-radius:10px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}button.secondary{background:#fff;color:var(--green);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.bar{height:10px;background:#e9f0eb;border-radius:20px;overflow:hidden;margin:8px 0 14px}.bar span{display:block;height:100%;background:linear-gradient(90deg,#2e9d67,#82c95e);border-radius:20px}.statrow{display:flex;justify-content:space-between;gap:12px;margin:8px 0}.report{border:1px dashed #a9c9b3;background:#f8fcf9;border-radius:12px;padding:16px;white-space:pre-wrap;min-height:120px;font-size:13px}.note{font-size:12px;color:var(--muted);margin-top:12px}.hidden{display:none}.check{display:flex;gap:8px;align-items:start;margin:10px 0}.check input{width:auto;margin-top:5px}.footer{margin:25px 0 40px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:760px){.span8,.span4,.span6{grid-column:span 12}.intro h1{font-size:26px}form{grid-template-columns:1fr}header{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header><div class="brand">🌱 GreenProof <span>Prove Your Impact. Unlock Green Opportunities.</span></div><div class="tag">GreenByte · Conference demo prototype</div></header>
+<main>
+<div class="intro"><div><h1>Your impact, made visible.</h1><p>Track resource use, document environmental projects, and turn evidence into a clear impact report. This is an interactive demo using sample data.</p></div><span class="pill">Demo data · Not a certification</span></div>
+<div class="tabs">
+<button class="tab active" data-tab="dashboard">Impact dashboard</button>
+<button class="tab" data-tab="calculator">Impact calculator</button>
+<button class="tab" data-tab="passport">Impact passport</button>
+<button class="tab" data-tab="report">Report & readiness</button>
+</div>
+<section id="dashboard" class="panel">
+<div class="grid">
+<div class="card span8"><h2>Resource use overview</h2><div class="grid">
+<div class="span6"><div class="muted">Electricity use · baseline</div><div class="metric" id="dashBase">1,200 kWh</div><div class="bar"><span style="width:100%"></span></div></div>
+<div class="span6"><div class="muted">Electricity use · current</div><div class="metric" id="dashCurrent">900 kWh</div><div class="bar"><span id="currentBar" style="width:75%"></span></div></div>
+</div><div class="statrow"><span>Usage change</span><strong id="dashChange">25% lower</strong></div><p class="muted">Illustrative figures. Actual impact depends on measurement quality, reporting period and operating conditions.</p></div>
+<div class="card span4"><h2>Estimated cost change</h2><div class="metric" id="dashSaving">KSh 6,000</div><p class="muted">Based on sample tariff of KSh 20/kWh and 300 kWh saved.</p><span class="pill">Estimate</span></div>
+<div class="card span6"><h2>Project progress</h2><div class="statrow"><span>LED lighting upgrade</span><strong>75%</strong></div><div class="bar"><span style="width:75%"></span></div><div class="statrow"><span>Evidence attached</span><strong>3 items</strong></div><div class="bar"><span style="width:60%"></span></div></div>
+<div class="card span6"><h2>What GreenProof helps with</h2><div class="check"><span>✓</span><span>Compare baseline and current resource use</span></div><div class="check"><span>✓</span><span>Record project goals, milestones and budget</span></div><div class="check"><span>✓</span><span>Organise evidence and prepare a shareable report</span></div></div>
+</div></section>
+<section id="calculator" class="panel hidden"><div class="grid">
+<div class="card span8"><h2>Green Impact Calculator</h2><p class="muted">Enter two comparable reporting periods. This calculator estimates the change in electricity use and cost.</p>
+<form id="calcForm"><div><label for="baseline">Baseline electricity (kWh)</label><input id="baseline" type="number" min="0" value="1200" required></div><div><label for="current">Current electricity (kWh)</label><input id="current" type="number" min="0" value="900" required></div><div><label for="tariff">Electricity tariff (KSh/kWh)</label><input id="tariff" type="number" min="0" step="0.01" value="20" required></div><div><label for="period">Reporting period</label><select id="period"><option>Monthly</option><option>Quarterly</option><option>Yearly</option></select></div></form>
+<div class="actions"><button class="primary" id="calculate">Calculate impact</button><button class="secondary" id="resetCalc">Reset sample</button></div><p class="note">Assumption: periods are comparable and the tariff entered is applicable to both. This does not independently verify meter readings or emissions.</p></div>
+<div class="card span4"><h2>Your result</h2><div class="muted">Electricity change</div><div class="metric" id="resultKwh">300 kWh</div><div id="resultPct" class="pill">25% reduction</div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="muted">Estimated cost difference</div><div class="metric" id="resultKes">KSh 6,000</div><p class="muted" id="calcExplanation">Baseline minus current usage, multiplied by tariff.</p></div></div></section>
+<section id="passport" class="panel hidden"><div class="grid"><div class="card span8"><h2>Green Impact Passport</h2><p class="muted">A structured record of goals, progress and evidence. It is not an official environmental certification.</p>
+<form id="passportForm"><div><label for="projectName">Project name</label><input id="projectName" value="LED Lighting Upgrade"></div><div><label for="owner">Project / team</label><input id="owner" value="GreenByte Demo Team"></div><div><label for="goal">Environmental goal</label><input id="goal" value="Reduce electricity use"></div><div><label for="budget">Budget (KSh)</label><input id="budget" type="number" min="0" value="15000"></div><div><label for="milestone">Milestone</label><select id="milestone"><option>Planning</option><option>In progress</option><option selected>Testing / measuring</option><option>Completed</option></select></div><div><label for="evidence">Evidence recorded</label><select id="evidence"><option>Not yet provided</option><option selected>Meter readings and receipts</option><option>Photos and measurements</option><option>Independent verification</option></select></div></form>
+<div class="actions"><button class="primary" id="savePassport">Update passport preview</button></div></div><div class="card span4"><h2>Passport preview</h2><div id="passportPreview" class="report">LED Lighting Upgrade
+Goal: Reduce electricity use
+Budget: KSh 15,000
+Milestone: Testing / measuring
+Evidence: Meter readings and receipts
+Status: User-reported; not independently verified.</div></div></div></section>
+<section id="report" class="panel hidden"><div class="grid"><div class="card span6"><h2>Funding-readiness checklist</h2><p class="muted">Tick items your team has prepared. The checklist helps identify gaps; it does not predict or guarantee funding.</p>
+<div class="check"><input type="checkbox" checked id="c1"><label for="c1">Project description and target users</label></div><div class="check"><input type="checkbox" checked id="c2"><label for="c2">Budget and timeline</label></div><div class="check"><input type="checkbox" checked id="c3"><label for="c3">Baseline and impact measures</label></div><div class="check"><input type="checkbox" id="c4"><label for="c4">Supporting evidence organised</label></div><div class="check"><input type="checkbox" id="c5"><label for="c5">Eligibility and deadline checked for opportunity</label></div><div class="statrow"><span>Readiness items complete</span><strong id="readyCount">3 of 5</strong></div><div class="bar"><span id="readyBar" style="width:60%"></span></div></div>
+<div class="card span6"><h2>Generated impact report</h2><p class="muted">Create a text summary from the current calculator and checklist, then print or save as PDF using your browser.</p><div class="report" id="reportText">GREENPROOF IMPACT REPORT
+Project: LED Lighting Upgrade
+Baseline electricity: 1,200 kWh
+Current electricity: 900 kWh
+Change: 300 kWh (25% reduction)
+Estimated cost difference: KSh 6,000
+Evidence status: Sample data; verification required.
+Funding readiness: 3 of 5 checklist items complete.
+Disclaimer: Estimates rely on user-entered data and assumptions. This report is not a certification or guarantee of funding.</div><div class="actions"><button class="primary" id="generateReport">Generate report</button><button class="secondary" onclick="window.print()">Print / Save PDF</button></div></div></div></section>
+<div class="footer">GreenProof by GreenByte · Prototype for discussion · Sample data only · No user data is uploaded</div>
+</main>
+<script>
+const tabs=document.querySelectorAll('.tab');tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.panel').forEach(p=>p.classList.add('hidden'));document.getElementById(b.dataset.tab).classList.remove('hidden')}));
+function money(n){return 'KSh '+Math.round(n).toLocaleString('en-KE')}
+function calculate(){let b=Math.max(0,Number(document.getElementById('baseline').value)||0),c=Math.max(0,Number(document.getElementById('current').value)||0),t=Math.max(0,Number(document.getElementById('tariff').value)||0);let d=b-c,p=b?d/b*100:0,s=d*t;document.getElementById('resultKwh').textContent=Math.abs(d).toLocaleString()+' kWh '+(d>=0?'saved':'increase');document.getElementById('resultPct').textContent=(b?Math.abs(p).toFixed(1):'0')+'% '+(d>=0?'reduction':'increase');document.getElementById('resultKes').textContent=money(s);document.getElementById('calcExplanation').textContent=`${b.toLocaleString()} − ${c.toLocaleString()} = ${d.toLocaleString()} kWh; difference × ${money(t)} per kWh.`;document.getElementById('dashBase').textContent=b.toLocaleString()+' kWh';document.getElementById('dashCurrent').textContent=c.toLocaleString()+' kWh';document.getElementById('dashChange').textContent=(b?Math.abs(p).toFixed(1):'0')+'% '+(d>=0?'lower':'higher');document.getElementById('dashSaving').textContent=money(s);document.getElementById('currentBar').style.width=(b?Math.min(100,c/b*100):0)+'%';}
+document.getElementById('calculate').addEventListener('click',calculate);document.getElementById('calcForm').addEventListener('submit',e=>{e.preventDefault();calculate()});document.getElementById('resetCalc').addEventListener('click',()=>{baseline.value=1200;current.value=900;tariff.value=20;calculate()});
+document.getElementById('savePassport').addEventListener('click',()=>{passportPreview.textContent=`${projectName.value}\nTeam: ${owner.value}\nGoal: ${goal.value}\nBudget: KSh ${Number(budget.value||0).toLocaleString()}\nMilestone: ${milestone.value}\nEvidence: ${evidence.value}\nStatus: User-reported; not independently verified.`});
+function readiness(){let n=['c1','c2','c3','c4','c5'].filter(id=>document.getElementById(id).checked).length;readyCount.textContent=n+' of 5';readyBar.style.width=n*20+'%'}['c1','c2','c3','c4','c5'].forEach(id=>document.getElementById(id).addEventListener('change',readiness));
+document.getElementById('generateReport').addEventListener('click',()=>{let b=Number(baseline.value)||0,c=Number(current.value)||0,t=Number(tariff.value)||0,d=b-c,p=b?d/b*100:0,n=['c1','c2','c3','c4','c5'].filter(id=>document.getElementById(id).checked).length;reportText.textContent=`GREENPROOF IMPACT REPORT\nProject: ${projectName.value||'LED Lighting Upgrade'}\nReporting period: ${period.value}\nBaseline electricity: ${b.toLocaleString()} kWh\nCurrent electricity: ${c.toLocaleString()} kWh\nChange: ${d.toLocaleString()} kWh (${(b?Math.abs(p).toFixed(1):'0')}% ${d>=0?'reduction':'increase'})\nEstimated cost difference: ${money(d*t)}\nEvidence status: Sample/user-entered data; verification required.\nFunding readiness: ${n} of 5 checklist items complete.\nDisclaimer: Estimates rely on user-entered data and assumptions. This report is not a certification or guarantee of funding.`});
+calculate();
+</script>
+</body></html>
